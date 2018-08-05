@@ -33,3 +33,11 @@ export const setItemsLoading = () => {
         type : actions.ITEMS_LOADING
     }
 }
+
+export const showCharacter = (id) => dispatch => {
+    axios.get(`api/items/${id}`)
+    .then(res => dispatch({
+        type: actions.SHOW_CHARACTER,
+        payload: id
+    }))
+}

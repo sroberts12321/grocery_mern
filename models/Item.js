@@ -7,9 +7,19 @@ const ItemSchema = new Schema({
         type : String,
         required : true
     },
+    charclass : {
+        type: String,
+        required : true
+    },
     date : {
         type : Date,
         default : Date.now
+    },
+    level : {
+        type : Number,
+    },
+    race : {
+        type : String
     }
 })
 

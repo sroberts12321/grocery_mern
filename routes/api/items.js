@@ -18,9 +18,17 @@ router.get('/', (req,res)=>{
 // @access Public
 router.post('/', (req,res)=>{
     const newItem = new Item({
-        name : req.body.name
+        name : req.body.name,
+        charclass : req.body.charclass,
+        level : req.body.level,
+        race: req.body.race
     })
     newItem.save().then(item => res.json(item))
+})
+
+router.get('/:id', (req,res)=>{
+    Item.findById(req.params.id)
+    .then(item=> res.json(item))
 })
 
 // @route  DELETE api/items/:id

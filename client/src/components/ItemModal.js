@@ -8,6 +8,8 @@ import {
     FormGroup,
     Label,
     Input,
+    Col,
+    FormText
 } from 'reactstrap'
 import {connect} from 'react-redux'
 import {addItem} from '../actions/itemActions'
@@ -25,14 +27,17 @@ class ItemModal extends Component {
     }
 
     onChange = (e) => {
-        this.setState( { [e.target.name]:e.target.value } )
+        this.setState({[e.target.name]:e.target.value})
     }
 
     onSubmit = (e) => {
         e.preventDefault()
 
         const newItem = {
-            name:this.state.name
+            name:this.state.name,
+            charclass:this.state.charclass,
+            level:this.state.level,
+            race:this.state.race
         }
 
         // Add item via addItem action
@@ -49,28 +54,72 @@ class ItemModal extends Component {
                     color = "dark"
                     style = {{marginBottom: '2rem'}}
                     onClick = {this.toggle}
-                >Add Item</Button>
+                >New Character</Button>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>
+                <ModalHeader toggle={this.toggle}>Add a New Character</ModalHeader>
                 <ModalBody>
                     <Form onSubmit={this.onSubmit}>
-                        <FormGroup>
-                            <Label for="item">Item</Label>
+                        <FormGroup row>
+                            <Label for="characterName" sm={2}>Character</Label>
+                            <Col sm={10}>
                             <Input 
                                 type="text"
                                 name="name"
                                 id="item"
-                                placeholder="Add shopping item"
+                                placeholder="Character Name"
                                 onChange={this.onChange}
-                            />
+                            /></Col>
+                        </FormGroup>
+                        <FormGroup row>
+                            <Label for="characterClass" sm={2}>Class</Label>
+                            <Col sm={10}>
+                            <Input 
+                                type="select"
+                                name="charclass"
+                                onChange={this.onChange}>
+                                <option>Barbarian</option>
+                                <option>Bard</option>
+                                <option>Cleric</option>
+                                <option>Druid</option>
+                                <option>Fighter</option>
+                                <option>Monk</option>
+                                <option>Paladin</option>
+                                <option>Ranger</option>
+                                <option>Rogue</option>
+                                <option>Sorcerer</option>
+                                <option>Warlock</option>
+                                <option>Wizard</option></Input>
+                            </Col>
+                        </FormGroup>
+                        <FormGroup row>
+                        <Label for="characterLevel" sm={2}>Level</Label>
+                            <Col sm={10}>
+                            <Input
+                                type="number"
+                                name="level"
+                                placeholder="Enter Character Level"
+                                onChange={this.onChange}/>
+                            </Col>
+                        </FormGroup>
+                        <FormGroup row>
+                        <Label for="characterRace" sm={2}>Race</Label>
+                            <Col sm={10}>
+                            <Input
+                                type="text"
+                                name="race"
+                                placeholder="Enter Character Race"
+                                onChange={this.onChange}/>
+                            </Col>
+                        </FormGroup>
+                        <FormGroup>
                             <Button
                             color="dark"
                             style={{marginTop:'2rem'}}
                             block
-                            >Add Item</Button>
+                            >Add Character</Button>
                         </FormGroup>
                     </Form>
                 </ModalBody>

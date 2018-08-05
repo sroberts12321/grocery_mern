@@ -28,6 +28,11 @@ export default function(state = initialState, action){
             ...state,
             loading: true
         }
+        case actions.SHOW_CHARACTER:
+        return {
+            ...state,
+            items:state.items.filter(item =>item._id === action.payload)
+        }
         default : 
         return state
     }

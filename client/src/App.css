@@ -2,6 +2,10 @@
   margin-right:0.5rem;
 }
 
+.view-btn{
+  float:right;
+}
+
 .fade-enter {
   opacity: 0.01;
 }
