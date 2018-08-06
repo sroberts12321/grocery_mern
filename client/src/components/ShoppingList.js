@@ -73,28 +73,32 @@ class ShoppingList extends Component {
             <div>
                 {hero && hero.name? 
                 <div>
-                <Form>
+                <Form className="display">
                     <FormGroup row>
+                        <Col sm={2}></Col>
                         <Label sm={4}>Character name</Label>
                         <Col sm={4}>
                         {hero.name}</Col>
                     </FormGroup>
                     <FormGroup row>
+                        <Col sm={2}></Col>
                         <Label sm={4}>Character Class</Label>
                         <Col sm={4}><Label>
                         {hero.charclass}</Label></Col>
                     </FormGroup>
                     <FormGroup row>
+                        <Col sm={2}></Col>
                         <Label sm={4}>Character Level</Label>
                         <Col sm={4}><Label>
                         {hero.level}</Label></Col>
                     </FormGroup>
                     <FormGroup row>
+                        <Col sm={2}></Col>
                         <Label sm={4}>Character Race</Label>
                         <Col sm={4}><Label>
                         {hero.race}</Label></Col>
                     </FormGroup>
-                <Button color="success">Edit</Button>
+                <Button color="success" block>Edit</Button>
                 </Form>
                 </div>
                 :

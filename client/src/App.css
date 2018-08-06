@@ -27,3 +27,7 @@
 .get-all-btn{
   float:right;
 }
+
+.display{
+  justify-content: center;
+}
