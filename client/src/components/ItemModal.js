@@ -8,11 +8,10 @@ import {
     FormGroup,
     Label,
     Input,
-    Col,
-    FormText
+    Col
 } from 'reactstrap'
 import {connect} from 'react-redux'
-import {addItem} from '../actions/itemActions'
+import {addItem, getItems} from '../actions/itemActions'
 
 class ItemModal extends Component {
     state = {
@@ -24,6 +23,10 @@ class ItemModal extends Component {
         this.setState({
             modal: !this.state.modal
         })
+    }
+
+    onGetAllClick = () => {
+        this.props.getItems()
     }
 
     onChange = (e) => {
@@ -55,6 +58,13 @@ class ItemModal extends Component {
                     style = {{marginBottom: '2rem'}}
                     onClick = {this.toggle}
                 >New Character</Button>
+                <Button
+                    color = "success"
+                    style = {{marginBottom: '2rem'}}
+                    className = "get-all-btn"
+                    onClick = {this.onGetAllClick}>
+                    Show All Characters
+                    </Button>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
@@ -133,4 +143,4 @@ const mapStateToProps = state => ({
     item:state.item
 })
 
-export default connect(mapStateToProps, {addItem})(ItemModal)
+export default connect(mapStateToProps, {addItem, getItems})(ItemModal)

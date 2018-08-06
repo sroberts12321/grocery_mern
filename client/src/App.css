@@ -23,3 +23,7 @@
   opacity: 0.01;
   transition: opacity 500ms ease-in;
 }
+
+.get-all-btn{
+  float:right;
+}

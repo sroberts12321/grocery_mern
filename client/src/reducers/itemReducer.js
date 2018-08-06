@@ -29,9 +29,10 @@ export default function(state = initialState, action){
             loading: true
         }
         case actions.SHOW_CHARACTER:
+        var filtered = state.items.filter(item =>item._id === action.payload)
         return {
             ...state,
-            items:state.items.filter(item =>item._id === action.payload)
+            items: filtered
         }
         default : 
         return state
